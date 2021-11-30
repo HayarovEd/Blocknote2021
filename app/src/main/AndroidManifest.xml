@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".AboutActivity"
+            android:name=".ui.AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".CustomActivity"
+            android:name=".ui.CustomActivity"
             android:exported="false" />
         <activity
-            android:name=".NoteActivity"
+            android:name=".ui.NoteActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
