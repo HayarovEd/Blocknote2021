@@ -34,14 +34,15 @@ class NoteEditActivity : AppCompatActivity() {
             note = arguments.getSerializable(NoteModel::class.java.simpleName) as NoteModel
 
             var content = note.contentNote
-            val title = note.titleNote
+            var title = note.titleNote
             val id = note.idNote
             titleEditText.setText(title)
             contentEditText.setText(content)
 
 
             binding.saveNote.setOnClickListener {
-                content = binding.saveNote.text.toString()
+                content = binding.contentNote.text.toString()
+                title = binding.titleNote.text.toString()
                 Toast.makeText(this,content,Toast.LENGTH_LONG).show()
                 Thread {
                     noteDao.update(id, title, content)
@@ -84,7 +85,7 @@ class NoteEditActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.new_note -> {
-                val intent = Intent(this, NoteEditActivity::class.java)
+                val intent = Intent(this, NoteActivity::class.java)
                 startActivity(intent)
             }
             R.id.custom -> {

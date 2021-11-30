@@ -32,7 +32,7 @@ class CustomActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.new_note -> {
-                val intent = Intent(this, NoteEditActivity::class.java)
+                val intent = Intent(this, NoteActivity::class.java)
                 startActivity(intent)
             }
             R.id.custom -> {
