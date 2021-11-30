@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Блокнот</string>
+    <string name="about">О приложении</string>
+    <string name="custom">Настройки</string>
+    <string name="new_note">Новая земетка</string>
+    <string name="title_note">Заголовок</string>
+    <string name="content_note">Содержание</string>
 </resources>
