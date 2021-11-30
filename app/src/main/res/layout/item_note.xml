@@ -7,12 +7,12 @@
     android:layout_margin="@dimen/margin_half">
     <TextView
         style="@style/title_view"
-        android:id="@+id/title_note"
+        android:id="@+id/title_note_view"
         android:hint="@string/title_note"
         />
     <TextView
         style="@style/content_view"
-        android:id="@+id/popularity_movie"
+        android:id="@+id/content_note_view"
         android:hint="@string/content_note"
         />
 
