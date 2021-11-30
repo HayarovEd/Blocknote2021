@@ -1,8 +1,8 @@
-package com.edurda77.Blocknote2021.domain
+package com.edurda77.blocknote2021.domain
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.edurda77.Blocknote2021.data.NoteModel
+import com.edurda77.blocknote2021.data.NoteModel
 
 @Database(
     entities = [NoteModel:: class],

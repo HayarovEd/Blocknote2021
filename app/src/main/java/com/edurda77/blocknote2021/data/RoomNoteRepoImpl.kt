@@ -1,9 +1,9 @@
-package com.edurda77.Blocknote2021.data
+package com.edurda77.blocknote2021.data
 
 import android.content.Context
 import androidx.room.Room
-import com.edurda77.Blocknote2021.domain.NoteDao
-import com.edurda77.Blocknote2021.domain.NoteRoomDb
+import com.edurda77.blocknote2021.domain.NoteDao
+import com.edurda77.blocknote2021.domain.NoteRoomDb
 
 private const val DB_PATH="notes.db"
 class RoomNoteRepoImpl (context: Context): NoteDao{
@@ -13,9 +13,9 @@ class RoomNoteRepoImpl (context: Context): NoteDao{
         NoteRoomDb::class.java,
         DB_PATH
     ).build().noteDao()
-    override fun add(note: NoteModel) : Int {
+    override fun add(note: NoteModel)  {
         noteDao.add(note)
-        return -1
+
     }
 
     override fun getNots(): List<NoteModel> {

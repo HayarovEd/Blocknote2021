@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.edurda77.Blocknote2021">
+    package="com.edurda77.blocknote2021">
 
     <application
         android:allowBackup="true"
@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ui.NoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.AboutActivity"
             android:exported="false" />
         <activity
             android:name=".ui.CustomActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.NoteActivity"
+            android:name=".ui.NoteEditActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

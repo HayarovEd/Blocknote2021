@@ -7,7 +7,7 @@
     android:layout_margin="@dimen/margin_half"
     android:background="@color/teal_700"
     android:orientation="vertical"
-    tools:context=".ui.NoteActivity">
+    tools:context=".ui.NoteEditActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,21 +20,28 @@
             app:titleTextColor="@color/green" />
     </com.google.android.material.appbar.AppBarLayout>
     <EditText
-        android:id="@+id/title_new_note"
+        android:id="@+id/title_note"
         style="@style/title_view"
         android:hint="@string/title_note" />
 
     <EditText
-        android:id="@+id/content_new_note"
+        android:id="@+id/content_note"
         style="@style/content_view"
         android:hint="@string/content_note" />
     <Button
-        android:id="@+id/save_new_note"
+        android:id="@+id/save_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/save_button">
 
     </Button>
+    <Button
+        android:id="@+id/delete_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/delete_button">
 
+    </Button>
 </LinearLayout>

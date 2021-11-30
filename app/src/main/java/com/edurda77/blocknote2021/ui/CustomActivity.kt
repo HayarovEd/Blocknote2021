@@ -1,4 +1,4 @@
-package com.edurda77.Blocknote2021.ui
+package com.edurda77.blocknote2021.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import com.edurda77.Blocknote2021.R
-import com.edurda77.Blocknote2021.databinding.ActivityCustomBinding
+
+import com.edurda77.blocknote2021.R
+import com.edurda77.blocknote2021.databinding.ActivityCustomBinding
+
 
 class CustomActivity : AppCompatActivity() {
     private var toolbar: Toolbar? = null
@@ -30,7 +32,7 @@ class CustomActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.new_note -> {
-                val intent = Intent(this, NoteActivity::class.java)
+                val intent = Intent(this, NoteEditActivity::class.java)
                 startActivity(intent)
             }
             R.id.custom -> {

@@ -1,4 +1,4 @@
-package com.edurda77.Blocknote2021.data
+package com.edurda77.blocknote2021.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

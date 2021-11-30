@@ -1,14 +1,14 @@
-package com.edurda77.Blocknote2021.domain
+package com.edurda77.blocknote2021.domain
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.edurda77.Blocknote2021.data.*
+import com.edurda77.blocknote2021.data.*
 
 @Dao
 interface NoteDao {
     @Insert
-    fun add(note: NoteModel): Int
+    fun add(note: NoteModel)
     @Query("SELECT * FROM $NOTE_TABLE")
     fun getNots(): List<NoteModel>
     @Query("DELETE FROM $NOTE_TABLE WHERE $NOTE_ID=:id")
