@@ -19,13 +19,29 @@
             app:title="Блокнот"
             app:titleTextColor="@color/green" />
     </com.google.android.material.appbar.AppBarLayout>
-    <TextView
+    <EditText
         android:id="@+id/title_note"
         style="@style/title_view"
         android:hint="@string/title_note" />
 
-    <TextView
+    <EditText
         android:id="@+id/id_movie"
         style="@style/content_view"
         android:hint="@string/content_note" />
+    <Button
+        android:id="@+id/save_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/save_button">
+
+    </Button>
+    <Button
+        android:id="@+id/delete_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/delete_button">
+
+    </Button>
 </LinearLayout>

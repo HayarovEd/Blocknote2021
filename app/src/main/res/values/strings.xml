@@ -5,4 +5,6 @@
     <string name="new_note">Новая земетка</string>
     <string name="title_note">Заголовок</string>
     <string name="content_note">Содержание</string>
+    <string name="save_button">Сохранить</string>
+    <string name="delete_button">Удалить</string>
 </resources>

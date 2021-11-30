@@ -13,8 +13,9 @@ class RoomNoteRepoImpl (context: Context): NoteDao{
         NoteRoomDb::class.java,
         DB_PATH
     ).build().noteDao()
-    override fun add(note: NoteModel) {
+    override fun add(note: NoteModel) : Int {
         noteDao.add(note)
+        return -1
     }
 
     override fun getNots(): List<NoteModel> {

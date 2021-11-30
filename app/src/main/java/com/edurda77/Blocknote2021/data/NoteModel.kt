@@ -12,7 +12,7 @@ const val NOTE_TITLE = "title"
 const val NOTE_CONTENT = "content"
 @Entity(tableName = NOTE_TABLE)
 data class NoteModel (
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = NOTE_ID)
     val idNote: Int,
     @ColumnInfo(name = NOTE_TITLE)
@@ -21,3 +21,8 @@ data class NoteModel (
     val contentNote: String
 
 ) : Serializable
+/*{
+    companion object {
+        const val  UNDEFINED_ID=-1
+    }
+}*/

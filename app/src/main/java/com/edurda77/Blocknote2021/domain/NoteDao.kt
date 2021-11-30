@@ -8,7 +8,7 @@ import com.edurda77.Blocknote2021.data.*
 @Dao
 interface NoteDao {
     @Insert
-    fun add(note: NoteModel)
+    fun add(note: NoteModel): Int
     @Query("SELECT * FROM $NOTE_TABLE")
     fun getNots(): List<NoteModel>
     @Query("DELETE FROM $NOTE_TABLE WHERE $NOTE_ID=:id")
