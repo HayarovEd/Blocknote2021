@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.blocknote2021.R
 import com.edurda77.blocknote2021.data.NoteModel
 import com.edurda77.blocknote2021.databinding.ActivityMainBinding
-import com.edurda77.blocknote2021.domain.NoteDao
+import com.edurda77.blocknote2021.repository.NoteDao
 
 class MainActivity : AppCompatActivity() {
     private var toolbar: Toolbar? = null

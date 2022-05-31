@@ -1,4 +1,4 @@
-package com.edurda77.blocknote2021.domain
+package com.edurda77.blocknote2021.repository
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -13,7 +13,7 @@ interface NoteDao {
     fun getNots(): List<NoteModel>
     @Query("DELETE FROM $NOTE_TABLE WHERE $NOTE_ID=:id")
     fun delete (id: Int)
-    @Query("UPDATE $NOTE_TABLE SET $NOTE_TITLE=:title,$NOTE_CONTENT=:content  WHERE $NOTE_ID=:id")
-    fun update (id: Int, title: String, content: String)
+    @Query("UPDATE $NOTE_TABLE SET $NOTE_CONTENT=:content  WHERE $NOTE_ID=:id")
+    fun update (id: Int, content: String)
 
 }

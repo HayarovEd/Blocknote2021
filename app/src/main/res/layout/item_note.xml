@@ -5,11 +5,7 @@
     android:background="@color/purple_500"
     android:orientation="vertical"
     android:layout_margin="@dimen/margin_half">
-    <TextView
-        style="@style/title_view"
-        android:id="@+id/title_note_view"
-        android:hint="@string/title_note"
-        />
+
     <TextView
         style="@style/content_view"
         android:id="@+id/content_note_view"

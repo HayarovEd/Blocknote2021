@@ -1,13 +1,12 @@
-package com.edurda77.blocknote2021.data
+package com.edurda77.blocknote2021.repository
 
 import android.content.Context
 import androidx.room.Room
-import com.edurda77.blocknote2021.domain.NoteDao
-import com.edurda77.blocknote2021.domain.NoteRoomDb
+import com.edurda77.blocknote2021.data.NoteModel
 
 private const val DB_PATH="notes.db"
-class RoomNoteRepoImpl (context: Context): NoteDao{
-    private val noteDao:NoteDao
+class RoomNoteRepoImpl (context: Context): NoteDao {
+    private val noteDao: NoteDao
             = Room.databaseBuilder(
         context,
         NoteRoomDb::class.java,
@@ -26,7 +25,7 @@ class RoomNoteRepoImpl (context: Context): NoteDao{
         noteDao.delete(id)
     }
 
-    override fun update(id: Int, title: String, content: String) {
-        noteDao.update(id,title,content)
+    override fun update(id: Int,  content: String) {
+        noteDao.update(id,content)
     }
 }

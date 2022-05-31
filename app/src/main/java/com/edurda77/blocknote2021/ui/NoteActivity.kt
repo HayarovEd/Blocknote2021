@@ -10,9 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.edurda77.blocknote2021.R
 import com.edurda77.blocknote2021.data.NoteModel
-import com.edurda77.blocknote2021.databinding.ActivityEditNoteBinding
 import com.edurda77.blocknote2021.databinding.ActivityNoteBinding
-import com.edurda77.blocknote2021.domain.NoteDao
+import com.edurda77.blocknote2021.repository.NoteDao
 
 class NoteActivity : AppCompatActivity() {
     private var toolbar: Toolbar? = null

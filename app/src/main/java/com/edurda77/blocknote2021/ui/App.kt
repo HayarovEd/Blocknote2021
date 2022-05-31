@@ -3,7 +3,7 @@ package com.edurda77.blocknote2021.ui
 import android.app.Application
 import android.content.Context
 import com.edurda77.blocknote2021.data.RoomNoteRepoImpl
-import com.edurda77.blocknote2021.domain.NoteDao
+import com.edurda77.blocknote2021.repository.NoteDao
 
 class App : Application() {
     val noteDao: NoteDao by lazy { RoomNoteRepoImpl(this) }
