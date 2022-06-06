@@ -15,7 +15,6 @@ import com.edurda77.blocknote2021.databinding.ActivityNoteBinding
 import com.edurda77.blocknote2021.repository.NoteDao
 
 class NoteActivity : AppCompatActivity() {
-    private var toolbar: Toolbar? = null
     private lateinit var binding: ActivityNoteBinding
     private lateinit var viewModel: NotesViewModel
 
@@ -24,7 +23,6 @@ class NoteActivity : AppCompatActivity() {
         binding = ActivityNoteBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setToolbar()
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
@@ -44,32 +42,7 @@ class NoteActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun setToolbar() {
-        toolbar = binding.toolbar
-        setSupportActionBar(toolbar)
 
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.new_note -> {
-                val intent = Intent(this, NoteEditActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.custom -> {
-                val intent = Intent(this, CustomActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.about -> {
-                val intent = Intent(this, AboutActivity::class.java)
-                startActivity(intent)
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
 }
