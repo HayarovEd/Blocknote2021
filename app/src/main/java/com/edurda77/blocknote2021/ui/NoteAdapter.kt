@@ -5,9 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.blocknote2021.data.NoteModel
 
-class NoteAdapter (private val list: List<NoteModel>, val onClickListener: OnStateClickListener) :
-    RecyclerView.Adapter<NoteHolder>()
-{
+class NoteAdapter(
+    private val list: List<NoteModel>,
+    private val onClickListener: OnStateClickListener
+) :
+    RecyclerView.Adapter<NoteHolder>() {
     interface OnStateClickListener {
         fun onStateClick(note: NoteModel, position: Int)
     }

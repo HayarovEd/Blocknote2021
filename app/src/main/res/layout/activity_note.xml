@@ -19,10 +19,7 @@
             app:title="Блокнот"
             app:titleTextColor="@color/green" />
     </com.google.android.material.appbar.AppBarLayout>
-    <EditText
-        android:id="@+id/title_new_note"
-        style="@style/title_view"
-        android:hint="@string/title_note" />
+
 
     <EditText
         android:id="@+id/content_new_note"

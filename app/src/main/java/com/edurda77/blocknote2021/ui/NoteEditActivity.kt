@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.ViewModelProvider
 import com.edurda77.blocknote2021.R
 import com.edurda77.blocknote2021.data.NoteModel
 import com.edurda77.blocknote2021.databinding.ActivityEditNoteBinding
@@ -17,15 +18,17 @@ import com.edurda77.blocknote2021.repository.NoteDao
 class NoteEditActivity : AppCompatActivity() {
     private var toolbar: Toolbar? = null
     private lateinit var binding: ActivityEditNoteBinding
-    private val noteDao: NoteDao by lazy { app.noteDao }
+    private lateinit var viewModel: NotesViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityEditNoteBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setToolbar()
-        val titleEditText: EditText = binding.titleNote
-        val contentEditText: EditText = binding.contentNote
-
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+        ).get(NotesViewModel::class.java)
 
         val arguments = intent.extras
         val note: NoteModel
@@ -33,50 +36,37 @@ class NoteEditActivity : AppCompatActivity() {
         if (arguments != null) {
             note = arguments.getSerializable(NoteModel::class.java.simpleName) as NoteModel
 
-            var content = note.contentNote
-            var title = note.titleNote
-            val id = note.idNote
-            titleEditText.setText(title)
-            contentEditText.setText(content)
+            binding.contentNote.setText(note.contentNote)
 
 
             binding.saveNote.setOnClickListener {
-                content = binding.contentNote.text.toString()
-                title = binding.titleNote.text.toString()
-                Toast.makeText(this,content,Toast.LENGTH_LONG).show()
-                Thread {
-                    noteDao.update(id, title, content)
-                    runOnUiThread {
-                        initStartActivity()
-                    }
-                }.start()
-                Toast.makeText(this,"Заметка обновлена",Toast.LENGTH_SHORT).show()
+                val content = binding.contentNote.text.toString()
+                val updateNote = NoteModel (note.idNote, content)
+                viewModel.updateNote(updateNote)
+                initStartActivity()
+                Toast.makeText(this, "Заметка обновлена", Toast.LENGTH_SHORT).show()
             }
             binding.deleteNote.setOnClickListener {
-
-
-                Thread {
-                    noteDao.delete(id)
-                    runOnUiThread {
-                        initStartActivity()
-                    }
-
-                }.start()
-                Toast.makeText(this,"Заметка удалена",Toast.LENGTH_SHORT).show()
+                viewModel.deleteNote(note)
+                initStartActivity()
+                Toast.makeText(this, "Заметка удалена", Toast.LENGTH_SHORT).show()
             }
         }
 
 
     }
+
     private fun initStartActivity() {
         val intent = Intent(this@NoteEditActivity, MainActivity::class.java)
         startActivity(intent)
     }
+
     private fun setToolbar() {
         toolbar = binding.toolbar
         setSupportActionBar(toolbar)
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
