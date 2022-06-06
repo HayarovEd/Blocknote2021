@@ -11,7 +11,7 @@ interface NoteDao {
     @Insert
     suspend  fun add(note: NoteModel)
     @Query("SELECT * FROM $NOTE_TABLE")
-    fun getNots(): LiveData<List<NoteModel>>
+    fun getNotes(): LiveData<List<NoteModel>>
     @Query("DELETE FROM $NOTE_TABLE WHERE $NOTE_ID=:id")
     suspend fun delete (id: Int)
     @Query("UPDATE $NOTE_TABLE SET $NOTE_CONTENT=:content  WHERE $NOTE_ID=:id")

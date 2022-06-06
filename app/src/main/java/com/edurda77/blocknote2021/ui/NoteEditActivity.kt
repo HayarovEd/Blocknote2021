@@ -1,18 +1,14 @@
 package com.edurda77.blocknote2021.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.edurda77.blocknote2021.R
+import com.edurda77.blocknote2021.data.DELETE_NOTE
 import com.edurda77.blocknote2021.data.NoteModel
+import com.edurda77.blocknote2021.data.UPDATE_NOTE
 import com.edurda77.blocknote2021.databinding.ActivityEditNoteBinding
-import com.edurda77.blocknote2021.repository.NoteDao
 
 
 class NoteEditActivity : AppCompatActivity() {
@@ -26,7 +22,7 @@ class NoteEditActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NotesViewModel::class.java)
+        )[NotesViewModel::class.java]
 
         val arguments = intent.extras
         val note: NoteModel
@@ -42,12 +38,12 @@ class NoteEditActivity : AppCompatActivity() {
                 val updateNote = NoteModel (note.idNote, content)
                 viewModel.updateNote(updateNote)
                 initStartActivity()
-                Toast.makeText(this, "Заметка обновлена", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, UPDATE_NOTE, Toast.LENGTH_SHORT).show()
             }
             binding.deleteNote.setOnClickListener {
                 viewModel.deleteNote(note)
                 initStartActivity()
-                Toast.makeText(this, "Заметка удалена", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, DELETE_NOTE, Toast.LENGTH_SHORT).show()
             }
         }
 

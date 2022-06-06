@@ -6,9 +6,7 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 
-const val NOTE_TABLE = "notes"
-const val NOTE_ID = "id"
-const val NOTE_CONTENT = "content"
+
 @Entity(tableName = NOTE_TABLE)
 data class NoteModel (
     @PrimaryKey(autoGenerate = true)

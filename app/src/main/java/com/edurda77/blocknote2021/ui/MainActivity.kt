@@ -11,7 +11,7 @@ import com.edurda77.blocknote2021.R
 import com.edurda77.blocknote2021.data.NoteModel
 import com.edurda77.blocknote2021.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NoteClickDeleteInterface {
     private lateinit var viewModel: NotesViewModel
 
     private lateinit var binding: ActivityMainBinding
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NotesViewModel::class.java)
+        )[NotesViewModel::class.java]
         viewModel.liveData.observe(this) {
             setRecycledView(it)
         }
@@ -45,9 +45,11 @@ class MainActivity : AppCompatActivity() {
 
                     startActivity(intent)
                 }
+
             }
-        recyclerView.adapter = NoteAdapter(notes, stateClickListener)
+        recyclerView.adapter = NoteAdapter(notes, stateClickListener, this)
     }
+
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -62,6 +64,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onDeleteIconClick(note: NoteModel) {
+        viewModel.deleteNote(note)
     }
 
 

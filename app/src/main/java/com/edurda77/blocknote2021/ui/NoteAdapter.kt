@@ -7,7 +7,8 @@ import com.edurda77.blocknote2021.data.NoteModel
 
 class NoteAdapter(
     private val list: List<NoteModel>,
-    private val onClickListener: OnStateClickListener
+    private val onClickListener: OnStateClickListener,
+    private val noteClickDeleteInterface: NoteClickDeleteInterface
 ) :
     RecyclerView.Adapter<NoteHolder>() {
     interface OnStateClickListener {
@@ -28,7 +29,15 @@ class NoteAdapter(
         holder.itemView.setOnClickListener {
             onClickListener.onStateClick(note, position)
         }
+        holder.onDeleteClick.setOnClickListener {
+            noteClickDeleteInterface.onDeleteIconClick(note)
+        }
     }
 
     override fun getItemCount(): Int = list.size
+
+}
+
+interface NoteClickDeleteInterface {
+    fun onDeleteIconClick(note: NoteModel)
 }

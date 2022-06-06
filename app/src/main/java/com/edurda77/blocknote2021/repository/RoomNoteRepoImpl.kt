@@ -3,9 +3,10 @@ package com.edurda77.blocknote2021.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Room
+import com.edurda77.blocknote2021.data.DB_PATH
 import com.edurda77.blocknote2021.data.NoteModel
 
-private const val DB_PATH = "notes2.db"
+
 
 class RoomNoteRepoImpl(context: Context) : NoteDao {
     private val noteDao: NoteDao = Room.databaseBuilder(
@@ -19,8 +20,8 @@ class RoomNoteRepoImpl(context: Context) : NoteDao {
 
     }
 
-    override fun getNots(): LiveData<List<NoteModel>> {
-        return noteDao.getNots()
+    override fun getNotes(): LiveData<List<NoteModel>> {
+        return noteDao.getNotes()
     }
 
     override suspend fun delete(id: Int) {
