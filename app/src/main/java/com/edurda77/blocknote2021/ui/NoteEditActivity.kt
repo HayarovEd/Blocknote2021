@@ -9,20 +9,22 @@ import com.edurda77.blocknote2021.data.DELETE_NOTE
 import com.edurda77.blocknote2021.data.NoteModel
 import com.edurda77.blocknote2021.data.UPDATE_NOTE
 import com.edurda77.blocknote2021.databinding.ActivityEditNoteBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class NoteEditActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditNoteBinding
-    private lateinit var viewModel: NotesViewModel
+    //private lateinit var viewModel: NotesViewModel
+    private val viewModel: NotesViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityEditNoteBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(
+       /* viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        )[NotesViewModel::class.java]
+        )[NotesViewModel::class.java]*/
 
         val arguments = intent.extras
         val note: NoteModel

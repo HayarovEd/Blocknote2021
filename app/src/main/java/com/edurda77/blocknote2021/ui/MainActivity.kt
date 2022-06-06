@@ -10,20 +10,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.blocknote2021.R
 import com.edurda77.blocknote2021.data.NoteModel
 import com.edurda77.blocknote2021.databinding.ActivityMainBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), NoteClickDeleteInterface {
-    private lateinit var viewModel: NotesViewModel
-
+    //private lateinit var viewModel: NotesViewModel
+    private val viewModel: NotesViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setAddNewNote()
-        viewModel = ViewModelProvider(
+       /* viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        )[NotesViewModel::class.java]
+        )[NotesViewModel::class.java]*/
         viewModel.liveData.observe(this) {
             setRecycledView(it)
         }

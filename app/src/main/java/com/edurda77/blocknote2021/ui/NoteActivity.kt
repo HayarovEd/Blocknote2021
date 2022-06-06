@@ -8,20 +8,21 @@ import androidx.lifecycle.ViewModelProvider
 import com.edurda77.blocknote2021.data.ADD_NOTE
 import com.edurda77.blocknote2021.data.NoteModel
 import com.edurda77.blocknote2021.databinding.ActivityNoteBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNoteBinding
-    private lateinit var viewModel: NotesViewModel
-
+    //private lateinit var viewModel: NotesViewModel
+    private val viewModel: NotesViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityNoteBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(
+       /* viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        )[NotesViewModel::class.java]
+        )[NotesViewModel::class.java]*/
         binding.saveNewNote.setOnClickListener {
             val content = binding.contentNewNote.text.toString()
             val note = NoteModel(0, content)

@@ -8,12 +8,8 @@ import com.edurda77.blocknote2021.data.NoteModel
 
 
 
-class RoomNoteRepoImpl(context: Context) : NoteDao {
-    private val noteDao: NoteDao = Room.databaseBuilder(
-        context,
-        NoteRoomDb::class.java,
-        DB_PATH
-    ).build().noteDao()
+class RoomNoteRepoImpl(private val noteDao: NoteDao) : NoteDao {
+
 
     override suspend fun add(note: NoteModel) {
         noteDao.add(note)
