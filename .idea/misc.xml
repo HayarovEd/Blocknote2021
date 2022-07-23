@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/edurd/AndroidStudioProjects/Blocknote2021/app/src/main/res/drawable/ic_add.xml" value="0.189" />
+        <entry key="..\:/Users/edurd/AndroidStudioProjects/Blocknote2021/app/src/main/res/layout/activity_edit_note.xml" value="0.203125" />
+        <entry key="..\:/Users/edurd/AndroidStudioProjects/Blocknote2021/app/src/main/res/layout/activity_main.xml" value="0.18072916666666666" />
+        <entry key="..\:/Users/edurd/AndroidStudioProjects/Blocknote2021/app/src/main/res/layout/activity_note.xml" value="0.203125" />
+        <entry key="..\:/Users/edurd/AndroidStudioProjects/Blocknote2021/app/src/main/res/layout/item_note.xml" value="0.22" />
         <entry key="..\:/Users/edurd/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_about.xml" value="0.178125" />
         <entry key="..\:/Users/edurd/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_custom.xml" value="0.1640625" />
         <entry key="..\:/Users/edurd/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.1640625" />
